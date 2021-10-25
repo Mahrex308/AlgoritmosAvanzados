@@ -1,0 +1,11 @@
+------------------------------------
+Ezequiel Lozano Guerrero - A01734172
+------------------------------------
+
+Partes específicas del proyecto en las que trabajó: colaboré en la realización de la función "searchKMP" para determinar si los mcodeY.txt se encuentran en los transmissionX.txt, además de ayudar a crear la función "searchLCS" que sirve para encontrar el substring más largo entre los dos archivos de transmisión dados en la actividad.
+
+--------------------------------------
+Diego Andrés Moreno Molina - A01283790
+--------------------------------------
+
+Partes específicas del proyecto en las que trabajó: colaboré en la realización de la función "readTxt" que sirve para convertir el contenido de los archivos de texto de mcodeY.txt y transmissionX.txt a strings (incluyendo los saltos de línea), además de ayudar a crear la función "searchManacher" para encontrar el palíndromo más largo en las cadenas de transmisión, junto con su función auxiliar "min" que utiliza para obtener el menor valor de dos números.
