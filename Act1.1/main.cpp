@@ -7,7 +7,7 @@ Autor: Ezequiel Lozano Guerrero
 Matrícula: A01734172
 
 Autor: Diego Andrés Moreno Molina
-Matrícula: A01283790    
+Matrícula: A01283790
 
 Fecha de creación: 12/08/2021
 */
@@ -39,7 +39,7 @@ void merge(vector<double> &nums, int left, int middle, int right){
     int rightSize = right - middle;
 
     // Ahora los llenamos
-
+    
     for(int i = 0; i < leftSize; i++){
         leftT.push_back(nums[left + i]);
     }
@@ -56,7 +56,7 @@ void merge(vector<double> &nums, int left, int middle, int right){
 
     while(i < leftSize && j < rightSize){
 
-        if(leftT[i] >= rightT[j]){
+        if(leftT[i] <= rightT[j]){
 
             nums[k] = leftT[i];
             i++;
@@ -107,6 +107,26 @@ void mergeSort(vector<double> &nums, int left, int right){
 
 }
 
+
+// Merge Sort versión Daniel69
+
+vector<double> mergeDadu(vector<double> a, vector<double> b){
+    vector<double> res;
+    double aIndex = 0, bIndex = 0;
+    while(aIndex < a.size() && bIndex < b.size())
+        if(a[aIndex] < b[bIndex]) res.push_back(a[aIndex++]);
+        else res.push_back(b[bIndex++]);
+    if(aIndex < a.size()) res.insert(res.end(), a.begin()+aIndex, a.end());
+    if(bIndex < b.size()) res.insert(res.end(), b.begin()+bIndex, b.end());
+    return res;
+}
+
+vector<double> mergeSortDadu(vector<double> v){
+    if(v.size() < 2) return v;
+    double middle = v.size()/2;
+    return mergeDadu(mergeSortDadu(vector<double>(v.begin(), v.begin()+middle)), mergeSortDadu(vector<double>(v.begin()+middle, v.end())));
+}
+
 int main(){
 
     int n;
@@ -125,11 +145,11 @@ int main(){
 
     }
 
-    mergeSort(nums, 0, nums.size() - 1);
+    vector<double> sortNums = mergeSortDadu(nums);
     cout << "\nNúmeros ordenados:\n" << endl;
 
-    for(int i = 0; i < nums.size(); i++){
-        cout << nums[i] << endl;
+    for(int i = 0; i < sortNums.size(); i++){
+        cout << sortNums[i] << endl;
     }
 
     return 0;
